@@ -40,7 +40,7 @@ def load_mpls_incidents():
     collection = FeatureCollection(geoList)
 
     #export to the yearly incident data folder
-    with open('Resources/GeoObs.json', 'w') as f:
+    with open('Resources/GeoIncident.json', 'w') as f:
                 f.write('%s' % collection)
 
    # return geoList
