@@ -1,4 +1,4 @@
-var data_path = "incident_data/yearly_incident_data/GeoObs.json"
+var data_path = "resources/GeoIncident.json"
 
 // Creating map object
 var myMap = L.map("map", {
