@@ -1,24 +1,28 @@
 var data_path = "resources/GeoIncident.json"
 var shape_file = "resources/Minneapolis_Neighborhoods.geojson"
 
-//retrieve json data and execute createMap function
-d3.json(data_path, function(data) {
-  var crimeData = data.features;
-  
-  d3.json(shape_file, function(data) {
-    // Store plate tectonic JSON response object into variable
-    var shapeData = data.features;
+//retrieve json data and execute createMap function  
+d3.json(shape_file, function(data) {
+    // Store neighboorhood JSON response object into variable
+    var shapeData = data.features; 
 
-    createMap(crimeData, shapeData);
-  });
+    createMap(shapeData);
+
 });
 
-function createMap(crimeData, shapeData) {     
+function createMap(shapeData,stopData) {     
 
   d3.json(data_path, function(data) {
 
     // console.log(data.features);
-     var markers = L.markerClusterGroup();
+     var markers = L.markerClusterGroup({ 
+        showCoverageOnHover: true,
+        zoomToBoundsOnClick: true,
+        spiderfyDistanceMultiplier: 1.5,
+        spiderLegPolylineOptions: {
+          color: '#FFFFFF'
+      }
+  });
   
      var features = data.features
   
@@ -27,21 +31,21 @@ function createMap(crimeData, shapeData) {
   
       if (location) {
          markers.addLayer(L.marker([location.coordinates[1], location.coordinates[0]])
-         .bindPopup("Crime: " + features[i].properties.description + "<br>Date:" + features[i].properties.incidentDate))
+         .bindPopup("Case Number: " + features[i].properties.caseNumber +"<br>Neighborhood: " + features[i].properties.neighborhood + "<br>Crime: " + features[i].properties.description + "<br>Date:" + features[i].properties.incidentDate))
           
       }
   
     }  
 
-   // create tetonic plates layer
-   shapeLayer = L.geoJSON(shapeData, {
+   // create neighborrhood layer
+  shapeLayer = L.geoJSON(shapeData, {
     onEachFeature: makePolyline,
       style: {
-        color: 'purple',
+        color: 'teal',
         opacity: 0.9
       }
   }); 
-  
+
   // create street map layer
   var streetLayer = L.tileLayer("https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}", {
     attribution: "© <a href='https://www.mapbox.com/about/maps/'>Mapbox</a> © <a href='http://www.openstreetmap.org/copyright'>OpenStreetMap</a> <strong><a href='https://www.mapbox.com/map-feedback/' target='_blank'>Improve this map</a></strong>",
@@ -76,7 +80,7 @@ function createMap(crimeData, shapeData) {
   accessToken: API_KEY
   });
 
-  // generate the tetonic plate polyline
+  // generate the neighborhood polyline
   function makePolyline(feature, layer){
     L.polyline(feature.geometry.coordinates);
   }
@@ -90,8 +94,8 @@ function createMap(crimeData, shapeData) {
   // Create and center map
   var myMap = L.map("map", {
     center: [44.9778, -93.2650],
-    zoom: 11,
-    layers: [satelliteLayer,shapeLayer]
+    zoom: 12,
+    layers: [darkLayer,shapeLayer]
   });
 
   myMap.addLayer(markers);
@@ -100,7 +104,8 @@ function createMap(crimeData, shapeData) {
   var baseMaps = {
     "Street Map": streetLayer,
     "Dark Map": darkLayer,
-    "Light Map": lightLayer, "Satellite Layer" : satelliteLayer
+    "Light Map": lightLayer, 
+    "Satellite Layer" : satelliteLayer
   };
 
    ///////////////////////////////////////////////////////////////////////////////////////////
