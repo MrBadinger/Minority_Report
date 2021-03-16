@@ -18,6 +18,12 @@
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.css">
     <link rel="stylesheet" type="text/css" href="https://unpkg.com/leaflet.markercluster@1.0.3/dist/MarkerCluster.Default.css">
 
+    <style>
+      .marginauto {
+          margin: 10px auto 20px;
+          display: block;
+      }
+    </style>
     
   </head>
   <body>
@@ -47,13 +53,58 @@
     </nav>
     <div class="container">
       <div class="row">
-        <!-- rf top feraturees -->
-        <img src="./resources/rf_top_10_features.png" alt="Top 10 Features">
+        <div class="col-md-12 jumbotron text-center">
+          <h1>Using Random Forest To Identify Crimes</h1>        
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <p class="tab">The Random Forest model attempted to identify the type of crime being committed. In order to make the data more usfeful we split out the month, day of week, day of month
+              into their own fields. We also created a dataframe with the results of get_dummies() on the neighboorhood and joined it to the dataframe we used for the predictions.
+            </p><br>
+            
+          </div>          
+        </div>
+        <br><br>
+
       </div>
+        
       <div class="row">
-        <!-- rf plot tree -->
-        <img src="./resources/rf_plot_tree.png" alt="RF Plot Tree" width="1000" height="1500" >
+        <div class="col-md-6">
+          <br><br>
+          <h1>Top 10 Features by Importance</h1>
+          <br><br><br><br>
+          <p class="tab">This graph shows the top ten features by importance. The Police Pricinct is at the top of the list with a score of 19%. Latitude and Longitude both make it into the top five 
+            with the rest of the features being the neighborhood of the incident. Downtown West which has the most incidents of any neighborhood comes in as the third most important feature. The several
+            date features we created did not crack the top twenty.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <br><br><br><br><br><br>
+          <img src='./resources/rf_top_10_features.png' alt="Top 10 Features by Importance" width="500" height="500" >
+        </div>
       </div>
+
+      <div class="col-md-12">
+        <h1>Random Forest Plot Tree</h1>   
+            <p class="tab">In order to create a readable plot tree for our Random Forest model we set the maximum depth to three when running the model. This allowed us to visualize the model in a decision tree format.
+            </p>  
+          <!-- rf plot tree -->
+          
+    
+      </div>
+      <img src="./resources/rf_plot_tree.png" alt="RF Plot Tree" width="1250" height="1000" >
+
+      <div>
+        <h1>Model Scores</h1>   
+        <br><br><br>
+        <p class="tab">The test results of the model showed that the model was not very accurate; only predicting a correct outcome roughly 55% of the time. Reinforcing our findings that crime can not be preidcted with this data set.</p>
+        <div class="row"></div>
+        <div class="col-md-12">
+          <br><br>
+            <img class="marginauto" src='./resources/rf_scores.PNG' alt="Date Cleaning" width="700" height="150">
+        </div>
+        <br>
+
     </div>
 
 
