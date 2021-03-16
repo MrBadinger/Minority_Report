@@ -36,11 +36,11 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-12 jumbotron text-center">
-        <h1>Using Maching Learning Models To Predict Crime Incidents</h1>
+      <div class="col-md-12"><h1>Using Machine Learning Models To Predict Crime Incidents</h1>
+        <img src="resources/images/crimeprediction.png" alt="Can we predict crime levels?" class="center"><br><br>
         <p>Our goal was to develop a machine learning (ML) model that will evaluate Minneapolis crime data from 2010
           through 2020 and then allow us to predict the number of crime incidents in 2021 and beyond.
-        </p>
+        </p><br><br>
       </div>
     </div>
     <div class="row">
@@ -151,25 +151,41 @@
         <img src='models/images/prophet_weekly_trends.png' alt="Prophet trends report">
       </div>
     </div>
+    <br><br><br>
     <div class="row">
       <div class="col-md-12"><h1>Model Results Summary</h1>
       </div>
     </div>
     <div class="row">
       <div class="col-md-12">
-        <p class="tab">We used root mean square error as a way to test across our models.</p>
+        <p class="tab">We used root mean square error as a standardized method to score our models for comparison.</p>
         <br>
-        <p class="tab">Results:
-          <ul>
-            <li>SMA 53wk: 80.695</li>
-            <li>SMA 52wk: 62.212</li>
-            <li>Prophet: 43.396</li>
-          </ul>
-        </p>
+          <table border="1" class="table table-striped">
+            <thead class="thead-dark">
+              <tr style="text-align: center;">
+                <th>Model</th>
+                <th>Score</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="text-align: center;">
+                <td>SMA 53wk</td>
+                <td>80.695</td>
+              </tr>
+              <tr style="text-align: center;">
+                <td>SMA 52wk</td>
+                <td>62.212</td>
+              </tr>
+              <tr style="text-align: center;">
+                <td>Prophet</td>
+                <td>43.396</td>
+              </tr>
+            </tbody>
+          </table>  
         <br>
         <p class="tab">Prophet scored the best of all the models with a RMSE score of 43.396. </p>
         <br><br>
-        <p class="tab">We also compared our predictions for 2021 using each model to the actual weekly counts so far (through March 14, 2021). 
+        <p class="tab">We also compared our predictions for 2021 using each model to the actual weekly counts so far (through March 14, 2021, accessed <a href="https://www.minneapolismn.gov/resident-services/public-safety/police-public-safety/crime-maps-dashboards/crime-dashboard/">here</a>). 
           Both models predicted lower than actual in January but have improved since. Some of this could be due to the uptick in auto thefts that 
           has been occuring over the past several months or the impact of weather events. 
         </p>
@@ -179,7 +195,7 @@
     <div class="row">
       <div class="col-md-12">
         <table border="1" class="table table-striped">
-          <thead>
+          <thead class="thead-dark">
             <tr style="text-align: center;">
               <th>Week Number</th>
               <th>Actual Incidents</th>
@@ -272,6 +288,12 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+          <hr color="#010101">
+          <p>See the code on <a href="https://github.com/MrBadinger/Minority_Report/tree/main/models">GitHub</a></p>
       </div>
     </div>
     <div class="row">
