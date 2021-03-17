@@ -37,6 +37,58 @@
   </nav>
   <br><br>
   <div class="container">
+    <div class="row">
+      <div class="col-md-12"><h1>Using Machine Learning Models To Predict Crime Incidents</h1>
+        <img src="resources/images/crimeprediction.png" alt="Can we predict crime levels?" class="center"><br><br>
+        <p class="tab">Our goal was to use machine learning (ML) to evaluate Minneapolis crime data from 2010
+          through 2020 and then use any effective models to make predictions about the number of crime incidents in 2021 and beyond.
+        </p><br><br>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Data preparation and cleaning</h1>
+        <p class="tab">The data was obtained from the City of Minneapolis <a href="https://opendata.minneapolismn.gov/"><strong>Open Data Portal</strong></a> 
+          where crime incident data for each year is available in csv format. This data source includes all property crimes and violent crimes, 
+          using the FBI uniform crime reporting codes to categorize each incident. <a href="https://en.wikipedia.org/wiki/Uniform_Crime_Reports">(More info about UCR codes)</a> 
+          Note that this data does not include what are categorized as type II offenses: traffic stops, disorderly conduct, DWI, drug offenses, etc. That data 
+          is tracked seperately from the type I incidents that we are evaluating in our models.
+        </p><br>  
+        <p class="tab">We noted that the Minneapolis Police Deparment (MPD) changed their software 
+          in the middle of 2018 which impacted the structure of the csv files (column names changed; the case number 
+          format changed, and dates and times were formatted differently). We used a python script to combine the CSVs 
+          and then used pandas to unify the formatting and data types of each column. The final combined data set was exported as 
+          a CSV file for use in our models.
+       </p>
+       <br><br>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <h1>Police Incident Dashboard</h1>
+    <div class="row">
+      <div class="col-md-12">
+        <div class='tableauPlaceholder' id='viz1615853072375' style='position: relative'>
+          <noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;D6&#47;D6P32Z8BB&#47;1_rss.png' style='border: none' /></a>
+          </noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> 
+            <param name='embed_code_version' value='3' /> 
+            <param name='path' value='shared&#47;D6P32Z8BB' /> 
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;D6&#47;D6P32Z8BB&#47;1.png' /> 
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en' />
+            <param name='filter' value='publish=yes' />
+          </object></div>                
+          <script type='text/javascript'> var divElement = document.getElementById('viz1615853072375'); var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        </div>
+      </div>
+  </div>
+  </br>
+  <div class="container">
     <h1>Crime Rate Story</h1>
     <div class="row">
       <div class="col-md-12">    
