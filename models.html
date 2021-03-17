@@ -37,38 +37,15 @@
   </nav>
   <div class="container">
     <div class="row">
-      <div class="col-md-12"><h1>Using Machine Learning Models To Predict Crime Incidents</h1>
-        <img src="resources/images/crimeprediction.png" alt="Can we predict crime levels?" class="center"><br><br>
-        <p>Our goal was to develop a machine learning (ML) model that will evaluate Minneapolis crime data from 2010
-          through 2020 and then allow us to predict the number of crime incidents in 2021 and beyond.
-        </p><br><br>
-      </div>
-    </div>
-    <div class="row">
       <div class="col-md-12">
-        <h1>Data preparation and cleaning</h1>
-        <p class="tab">The data was obtained from the City of Minneapolis <a href="https://opendata.minneapolismn.gov/"><strong>Open Data Portal</strong></a> 
-          where crime incident data for each year is available in csv format. This data source includes all property crimes and violent crimes, 
-          using the FBI uniform crime reporting codes to categorize each incident. <a href="https://en.wikipedia.org/wiki/Uniform_Crime_Reports">(More info about UCR codes)</a> 
-          Note that this data does not include what are categorized as type II offenses: traffic stops, disorderly conduct, DWI, drug offenses, etc. That data 
-          is tracked seperately from the type I incidents that we are evaluating in our models.
-        </p><br>  
-        <p class="tab">We noted that the Minneapolis Police Deparment (MPD) changed their software 
-          in the middle of 2018 which impacted the structure of the csv files (column names changed; the case number 
-          format changed, and dates and times were formatted differently). We used a python script to combine the CSVs 
-          and then used pandas to unify the formatting and data types of each column. The final combined data set was exported as 
-          a CSV file for use in our models.
-       </p>
-       <br><br>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12">
-       <h1>Modeling the data</h1>
+        <br><br>
+       <h1>Time-series modeling for predictions</h1>
        <p class="tab">We used two methods that are designed to predict values from time-series data - <a href="https://machinelearningmastery.com/moving-average-smoothing-for-time-series-forecasting-python/">
-        simple moving average</a>, and an open-source library originally developed by facebook called <a href="https://facebook.github.io/prophet/">Prophet</a>.
+        simple moving average</a>, and an open-source library originally developed by facebook called <a href="https://facebook.github.io/prophet/">Prophet</a>. For this analysis we chose to use weekly incident 
+        counts to get an idea about what seasonal trends may look like; both methods could be applied to daily data in order to develop a shorter-term forecasting tool for regular use.
        </p>
-       <br><br><br>
+       <br>
+       <br><br>
       </div>
     </div>
     <div class="row">
@@ -78,15 +55,15 @@
     <div class="row">
       <div class="col-md-6">
         <br><br>
-        <p class="tab">The first model uses a simple moving average calculation to evaluate the data from 2010-2019 
+        <p class="tab">The first model uses a simple moving average (SMA) calculation to evaluate the data from 2010-2019 
           then predicts counts by week for 2020. The graph at right shows how the predictions tracked versus the actual 
           crime counts by week for 2020. The reason for the drop off at the end of the chart for 'Actual' is because of the way 
           week of the year is calculated using Python datetime; a few days at the end of each year get put into a week 53. The 
           model run with the full dataset scored a root mean square error (RMSE) of 80.695.
         </p><br>
-        <p class="tab">Since the 53rd week was not consistent from year-to-year in the number of days measured, we decided to remove all week 
+        <p class="tab">Since the 53rd week was not consistent from year-to-year in the number of days measured or number of incidents, we decided to remove all week 
           53s from the dataset and run the model again. The graphs below show how this changed the training data. The full dataset 
-          is on the left, and the 52-week only data is on the right.
+          is on the left, and the 52-week only (364-day years) data is on the right.
         </p>
       </div>
       <div class="col-md-6">
@@ -110,6 +87,20 @@
       </div>
       <div class="col-md-6">
         <img src='models/images/weekly52_pred.png' alt="Simple moving average prediction">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <br>
+        <p class="tab">SMA can also be applied to a subset of the data to make more targeted predictions, either by neighborhood or by offense. 
+          This information could be used to plan patrols, public outreach/awareness, etc. in an effort to reduce crime in a targeted fashion.
+        </p>
+      </div>
+      <div class="col-md-4">
+        <img src='models/images/nhood_ex.png' alt="Neighborhood prediction" width="350">
+      </div>
+      <div class="col-md-4">
+        <img src='models/images/offense2_ex.png' alt="Offense prediction" width="350">
       </div>
     </div>
     <div class="row">
@@ -189,6 +180,10 @@
         <p class="tab">We also compared our predictions for 2021 using each model to the actual weekly counts so far (through March 14, 2021, accessed <a href="https://www.minneapolismn.gov/resident-services/public-safety/police-public-safety/crime-maps-dashboards/crime-dashboard/">here</a>). 
           Both models predicted lower than actual in January but have improved since. Some of this could be due to the uptick in auto thefts that 
           has been occuring over the past several months or the impact of weather events. 
+        </p>
+        <br>
+        <p class="tab">While these time-series models may not accurately predict future crime incident counts to the precision that may be required for policy or staffing changes, 
+          they may still be useful for identifying trends, within neighborhoods or by offense, that could be impacted through public outreach and awareness during key times of year.
         </p>
         <br><br>
       </div>
