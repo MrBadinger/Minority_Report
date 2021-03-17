@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Minneapolis Police Incident Analysis</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="reset.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-custom">
+    <a class="navbar-brand" href="index.html">Minneapolis Police Incident Analysis</a>   
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>   
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">    
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Links
+          </a>
+          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="index.html">Incident Dashboard</a>
+            <a class="dropdown-item" href="models.html">Weekly Models</a>
+            <a class="dropdown-item" href="RandomForest.html">Incident RF</a>
+            <a class="dropdown-item" href="rf_neighborhood.html">Neighborhood RF</a>
+            <a class="dropdown-item" href="geoMpls.html">Cluster Map Analysis</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Random Forest Predictive Model</h1>
+        <p class="tab">Understanding which neighborhoods will experience crime is critical for public safety.  Forecasting where crime is most likely to occur enables police to concentrate their limited resources in the neighborhoods that need it most.  This approach used two Random Forest models designed to identify the most impactful features impacting crime incidents neighborhoods.   The first model used all 87 Minneapolis neighborhoods.  The second focused on the Downtown West neighborhood which historically has the highest incidents of crime every year and is consistently red on the incident heatmaps reflected on this website. </p>
+        <br><p class="tab">Due to the categorial nature of the data in the models, two years (2018-2019) of data and 37,380 crime records were analyzed.
+        </p>
+        <img id="main_image" src="Resources/histogram_neighborhood.png" alt="Plot 1">
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-md-8">
+        <div class ="box-1">
+          <h1>Model 1: All Neighborhoods</h1>
+          <p class="text-md-left">The output (label) of this Random Forest model are the 87 Minneapolis neighborhoods.</p>
+          <br/>
+          <p>The input features analyzed were:</p><br>
+            <li>Precinct</li>
+            <li>Offense</li>
+            <li>UCR Code</li>
+            <li>Incident Time</li>
+            <li>Month</li>
+            <li>Week</li>
+            <li>Day of Month</li>
+        </br>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <div class ="box-1">
+            <h1>Model 2: Downtown West</h1>
+            <img id="main_image" src="Resources/histogram_neighborhood.png" alt="Plot 1">
+            <p class="text-md-left">textttststtstststddkjkfjslgjf kfgjdflkgjdfklgjdf</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-8">
+            <div class ="box-1">
+              <h1>Offense</h1>
+              <img id="main_image" src="Resources/histogram_offense.png" alt="Plot 1">
+              <p class="text-md-left">textttststtstststddkjkfjslgjf kfgjdflkgjdfklgjdf</p>
+            </div>
+          </div>
+  </div>
+  </br>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="./static/js/dog_app.js"></script>
+  
+</body>
+
+</html>

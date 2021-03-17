@@ -1,0 +1,33 @@
+digraph Tree {
+node [shape=box, style="rounded", color="black", fontname=helvetica] ;
+edge [fontname=helvetica] ;
+0 [label="offense_THEFT <= 0.5\nmse = 0.1\nsamples = 2281\nvalue = [[0.9]\n[0.1]]"] ;
+1 [label="offense_SHOPLF <= 0.5\nmse = 0.1\nsamples = 1654\nvalue = [[0.9]\n[0.1]]"] ;
+0 -> 1 [labeldistance=2.5, labelangle=45, headlabel="True"] ;
+2 [label="incidentTime_1:12 <= 0.5\nmse = 0.0\nsamples = 1553\nvalue = [[1.0]\n[0.0]]"] ;
+1 -> 2 ;
+3 [label="mse = 0.0\nsamples = 1552\nvalue = [[1.0]\n[0.0]]"] ;
+2 -> 3 ;
+4 [label="mse = 0.0\nsamples = 1\nvalue = [[0.0]\n[1.0]]"] ;
+2 -> 4 ;
+5 [label="day <= 0.6\nmse = 0.2\nsamples = 101\nvalue = [[0.8]\n[0.2]]"] ;
+1 -> 5 ;
+6 [label="mse = 0.2\nsamples = 53\nvalue = [[0.6]\n[0.4]]"] ;
+5 -> 6 ;
+7 [label="mse = 0.1\nsamples = 48\nvalue = [[0.9]\n[0.1]]"] ;
+5 -> 7 ;
+8 [label="month <= 0.8\nmse = 0.2\nsamples = 627\nvalue = [[0.8]\n[0.2]]"] ;
+0 -> 8 [labeldistance=2.5, labelangle=-45, headlabel="False"] ;
+9 [label="incidentTime_16:15 <= 0.5\nmse = 0.2\nsamples = 467\nvalue = [[0.7]\n[0.3]]"] ;
+8 -> 9 ;
+10 [label="mse = 0.2\nsamples = 465\nvalue = [[0.7]\n[0.3]]"] ;
+9 -> 10 ;
+11 [label="mse = 0.0\nsamples = 2\nvalue = [[0.0]\n[1.0]]"] ;
+9 -> 11 ;
+12 [label="incidentTime_13:30 <= 0.5\nmse = 0.1\nsamples = 160\nvalue = [[0.8]\n[0.2]]"] ;
+8 -> 12 ;
+13 [label="mse = 0.1\nsamples = 159\nvalue = [[0.9]\n[0.1]]"] ;
+12 -> 13 ;
+14 [label="mse = 0.0\nsamples = 1\nvalue = [[0.0]\n[1.0]]"] ;
+12 -> 14 ;
+}
