@@ -28,3 +28,4 @@ a. Cleans the incident csv files and combines them into one csv file.<br>
 2. csv_geojson.py<br>
 a. Creates a geojson file of the combined incident data.<br>
 3. csv_to_html.ipynb<br>
+a. Creates html files of interactive Plotly visualizations.
