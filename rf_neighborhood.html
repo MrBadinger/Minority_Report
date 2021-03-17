@@ -47,10 +47,10 @@
     </div>
     
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-md-10">
         <div class ="box-1">
           <h1>Model 1: All Neighborhoods</h1>
-          <p class="text-md-left">The output (label) of this Random Forest model are the 87 Minneapolis neighborhoods.</p>
+          <p class="text-md-left">Model 1 is designed to help identify the neighbors crimes will most likely occur.  The output (label) of this Random Forest model are the 87 Minneapolis neighborhoods.</p>
           <br/>
           <p>The input features analyzed were:</p><br>
             <li>Precinct</li>
@@ -60,23 +60,57 @@
             <li>Month</li>
             <li>Week</li>
             <li>Day of Month</li>
-        </br>
+            <br>
+            <br>
+            <p>The top ten features are reflected below descending by order of importance.  Time (day, month, year), precinct location, and offense (theft) are the most impactful features.  </p>
+            <p>This infomation may be helpful for police staffing.</p>
+            <img id="main_image" src="Resources/rf_top_10_features_model_1_fig_2.png" alt="Plot 1">
+            <p></p>
+          <h1>Model 1 Scores</h1>
+          <br>
+          <p>The results of the model had a low accuracy.  The training data accounted for 57% of the variation, but when the model was applied to the testing data, the score was only 12%.</p>
+          <p> This intitial fit confirmed the challenges with predicting crime in neighborhoods with the limited available data.</p>
+          <br>
+          <img id="main_image" src="Resources/rf_neighborhood_scores.PNG" alt="Plot 1">
+          <br>
+          <p>After hypertuning the model, an insignficant improvement (0.0007) was made in the score of the model.</p>
+          <br>
+          <img id="main_image" src="Resources/rf_neighborhood_optimized_scores.PNG" alt="Plot 1">
+          <br>
+          <br>
         </div>
       </div>
       <div class="row">
-        <div class="col-md-8">
+        <div class="col-md-10">
           <div class ="box-1">
             <h1>Model 2: Downtown West</h1>
-            <img id="main_image" src="Resources/histogram_neighborhood.png" alt="Plot 1">
-            <p class="text-md-left">textttststtstststddkjkfjslgjf kfgjdflkgjdfklgjdf</p>
+            <img id="main_image" src="Resources/downtown_west.png" alt="Plot 1">
+            <br>
+            <p class="text-md-left">Model 2 focused on one neighborhood which had the highest rate of crime to determine which features could be used to predict an incident.  </p>
+            <p>The same features were used to predict incidents as were used in Model 1.</p>
+            <br>
+            <p>The top six features are reflected below descending by order of importance.  As in the first model, Day, Month, Day of Week, and Offense (Theft - UCR Code 7) were impactful.  This model also showed the the time period of 1 AM was impactful.</p>
+            <img id="main_image" src="Resources/rf_top_6_features_fig_1.png" alt="Plot 1">
           </div>
+          <h1>Model 2 Scores</h1>
+          <br>
+          <p>Both the training and testing data had high scores.  The training data created a model with 99% fit.  This strong fit was reflected when the model was tested with a score of 90%.</p>
+          <p>This model will be much more useful in making more precise forecasts of crime in the Downtown-West neighborhood</p>
+          <br>
+          <img id="main_image" src="Resources/rf_downtown_west_scores.PNG" alt="Plot 1">
+          <br>
+          <br>
+          <p>After hypertuning the model, the model score improved an insignificant amount (0.01).</p>
+          <br>
+          <img id="main_image" src="Resources/rf_downtown_west_optimized_scores.PNG" alt="Plot 1">
+          <br>
+          <br>
         </div>
         <div class="row">
           <div class="col-md-8">
             <div class ="box-1">
-              <h1>Offense</h1>
-              <img id="main_image" src="Resources/histogram_offense.png" alt="Plot 1">
-              <p class="text-md-left">textttststtstststddkjkfjslgjf kfgjdflkgjdfklgjdf</p>
+              <h1>Summary</h1>
+              <p class="text-md-left">With limitied precision, the two neighborhood models the importance of police staffing at the right place and time.  Model 2 provided useful information that could be leverage by police when chosing times, day of week, month and day to patrol. </p>
             </div>
           </div>
   </div>
