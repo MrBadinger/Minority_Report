@@ -6,7 +6,7 @@
 3. b_prophet.ipynb
 4. b_time_series_final.ipynb
 5. b_time_series_test.ipynb
-6. randomforest_abp.ipynb
+6. randomforest_abp.ipynb<br>
 a. Random Forest model to predict ucrCode<br>
 b. Generates a Top 10 Features barchart<br>
 c. Generates a Tree Plot<br>
@@ -14,7 +14,7 @@ c. Generates a Tree Plot<br>
 # Visualizations
 1. Tableau Story
 2. Tableau Heat Map
-3. Leaflet.js Cluster Group Map
+3. Leaflet.js Cluster Group Map<br>
 a. Loads Data from the GeoIncident.json file created by the csv_geojson.py app.<br>
 b. Loads Minneapolis neighborhood shape data from the Minneapolis_Neighborhoods.geojson file which was downloaded from opendata.minneapolismn.gov.<br>
 c. Creates a ClusterGroup of the incident markers<br>
@@ -23,8 +23,8 @@ e. Marker includes case number, neighborhood, crime, and date of incident popup.
 
 # Misc
 
-1. incident_data/data_clean.ipynb 
+1. incident_data/data_clean.ipynb <br>
 a. Cleans the incident csv files and combines them into one csv file.<br>
-2. csv_geojson.py
+2. csv_geojson.py<br>
 a. Creates a geojson file of the combined incident data.<br>
-3. csv_to_html.ipynb
+3. csv_to_html.ipynb<br>
