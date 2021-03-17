@@ -9,7 +9,11 @@
 6. randomforest_abp.ipynb<br>
 a. Random Forest model to predict ucrCode<br>
 b. Generates a Top 10 Features barchart<br>
-c. Generates a Tree Plot<br>
+c. Generates a Tree Plot of the model<br>
+d. Runs the model through GridSearchCV with the following parameters:<br>
+    n_estimators': [750, 1000, 1250]<br>
+    'max_depth': [1, 10, 50]<br>
+    'criterion': ['gini', 'entropy']<br>
 
 # Visualizations
 1. Tableau Crime Rate Story
@@ -28,3 +32,4 @@ a. Cleans the incident csv files and combines them into one csv file.<br>
 2. csv_geojson.py<br>
 a. Creates a geojson file of the combined incident data.<br>
 3. csv_to_html.ipynb<br>
+a. Creates html files of interactive Plotly visualizations.
