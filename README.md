@@ -12,8 +12,8 @@ b. Generates a Top 10 Features barchart<br>
 c. Generates a Tree Plot<br>
 
 # Visualizations
-1. Tableau Story
-2. Tableau Heat Map
+1. Tableau Crime Rate Story
+2. Tableau Crime Heat Map
 3. Leaflet.js Cluster Group Map<br>
 a. Loads Data from the GeoIncident.json file created by the csv_geojson.py app.<br>
 b. Loads Minneapolis neighborhood shape data from the Minneapolis_Neighborhoods.geojson file which was downloaded from opendata.minneapolismn.gov.<br>
