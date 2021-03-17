@@ -1,5 +1,5 @@
 # Minneapolis Police Incident Analysis
-The goal of this project was to develop machine learning models that could be used to predict crime incident rates in the future.
+The goal of this project was use crime incident data from 2010-2020 to develop machine learning models that could be used to predict crime incident rates in the future.
 
 ## Models
 1. b_model.ipynb<br>
