@@ -1,6 +1,8 @@
 # Minneapolis Police Incident Analysis
 The goal of this project was use crime incident data from 2010-2020 to develop machine learning models that could be used to predict crime incident rates in the future.
 
+Analysis can be viewed by clicking [HERE](https://mrbadinger.github.io/Minority_Report/index.html)
+
 ## Models
 1. b_model.ipynb<br>
 a. Tests features in a naive bayes model and a deep learning neural network model<br>
